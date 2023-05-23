@@ -1,4 +1,0 @@
-*
-!.dockerignore
-!Dockerfile
-!tools/entrypoint.sh
