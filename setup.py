@@ -1,9 +1,5 @@
-from setuptools import find_packages
-from setuptools import setup
-
-
 setup(
-    name='pre-commit-terraform',
+    name='pre-commit',
     description='Pre-commit hooks by Simon',
     url='https://github.com/oksimon95/pre-commit.git',
     version_format='{tag}+{gitsha}',
@@ -19,15 +15,5 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
-    ],
-
-    packages=find_packages(exclude=('tests*', 'testing*')),
-    install_requires=[
-        'setuptools-git-version',
-    ],
-    entry_points={
-        'console_scripts': [
-            'terraform_docs_replace = hooks.terraform_docs_replace:main',
-        ],
-    },
+    ]
 )
