@@ -11,3 +11,10 @@
   entry: hooks/update_mono_service_jenkins.sh
   language: script
   pass_filenames: false
+
+- id: update_mono_ui_jenkins
+  name: Update Jenkinsfile with UI Apps
+  description: Update the Jenkinsfile with the defined set of UI Apps
+  entry: hooks/update_mono_ui_jenkins.sh
+  language: script
+  pass_filenames: false
