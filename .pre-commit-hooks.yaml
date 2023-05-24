@@ -4,3 +4,10 @@
   entry: hooks/verify_tf_providers.sh
   language: script
   pass_filenames: false
+
+- id: update_mono_service_jenkins
+  name: Update Jenkinsfile with Service Environment
+  description: Update the Jenkinsfile with the defined set of Service Environments
+  entry: hooks/update_mono_service_jenkins.sh
+  language: script
+  pass_filenames: false
