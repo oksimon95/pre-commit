@@ -3,3 +3,4 @@
   description: Verify that the Terraform lock file is configured for multiple platforms
   entry: hooks/verify_tf_providers.sh
   language: script
+  pass_filenames: false
