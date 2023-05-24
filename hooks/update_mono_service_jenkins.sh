@@ -16,5 +16,6 @@ if [[ $apps != $old_apps_list ]]; then
   old_jenkinsfile=$(cat Jenkinsfile)
   new_jenkinsfile=${old_jenkinsfile/$old_apps/$current_apps}
   echo $new_jenkinsfile > Jenkinsfile
+  echo "Updated Jenkinsfile Service Environment cells!"
   false
 fi
