@@ -1,6 +1,6 @@
 #!/bin/zsh
 if [[ $(command -v rg) == '' ]]; then
-  brew install rg
+  brew install ripgrep
 fi
 apps=($(ls environments/test/us-east-1 | rg -v ".log|.hcl" | sed "s/ /\n/g" | sort | xargs))
 

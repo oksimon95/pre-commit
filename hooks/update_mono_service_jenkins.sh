@@ -1,6 +1,6 @@
 #!/bin/zsh
 if [[ $(command -v rg) == '' ]]; then
-  brew install rg
+  brew install ripgrep
 fi
 apps=($(ls environments/prod/us-east-1 | rg -v ".log|.hcl"))
 old_apps=$(cat Jenkinsfile | rg -o -U --color=never "(\[)(\n.*)+(\])")
