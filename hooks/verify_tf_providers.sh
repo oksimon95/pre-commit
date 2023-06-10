@@ -2,7 +2,7 @@
 if [[ $(command -v hcl2json) == '' ]]; then
   brew install hcl2json
 fi
-providers=($(cat .terraform.lock.hcl | grep "provider " | sed -e "s/provider \"//g" -e "s/\" {//g" | xargs))
+providers=($(hcl2json .terraform.lock.hcl | jq -r ".provider | to_entries[] | .key" | xargs))
 for provider in $providers
 do
   number_of_platforms=$(hcl2json .terraform.lock.hcl | jq -r ".provider.\"$provider\"[].hashes[]" | grep --color=never "h1:" | wc -l | xargs)
