@@ -23,28 +23,9 @@ if [[ $apps != $old_apps_list ]]; then
   jenkinsfile_updated=true
 fi
 
-old_teardown_apps=$(cat TeardownJenkinsfile | rg -o -U --color=never "(\[)(\n.*)+(\])")
-old_teardown_apps_list=$(echo $old_teardown_apps | grep ',' | sed "s/,//g" | sort | xargs)
-
-if [[ $apps != $old_teardown_apps_list ]]; then
-  current_teardown_apps="["
-  for teardown_app in $apps
-  do
-    current_teardown_apps="${current_teardown_apps}\n    \"$teardown_app\","
-  done
-  current_teardown_apps="${current_teardown_apps}\n]"
-  old_teardown_jenkinsfile=$(cat TeardownJenkinsfile)
-  new_teardown_jenkinsfile=${old_teardown_jenkinsfile/$old_teardown_apps/$current_apps}
-  echo $new_teardown_jenkinsfile > TeardownJenkinsfile
-  teardown_jenkinsfile_updated=true
-fi
-
-if ($jenkinsfile_updated) || ($teardown_jenkinsfile_updated) ; then
+if ($jenkinsfile_updated); then
   if ($jenkinsfile_updated); then
     echo "Updated Jenkinsfile Apps!"
-  fi
-  if ($teardown_jenkinsfile_updated); then
-    echo "Updated TeardownJenkinsfile Apps!"
   fi
   false
 fi
